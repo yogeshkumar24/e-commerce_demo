@@ -42,29 +42,7 @@ class _HomePageState extends State<HomePage> {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("Logout"),
-                          content: Text("Do you want to logout?"),
-                          actions: [
-                            Row(
-                              children: [
-                                TextButton(
-                                  child: Text("No"),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                ),
-                                TextButton(
-                                  child: Text("Yes"),
-                                  onPressed: () {
-                                    Navigator.popAndPushNamed(
-                                        context, SignInPage.routeName);
-                                  },
-                                ),
-                              ],
-                            )
-                          ],
-                        );
+                        return logoutDialogWidget(context);
                       });
                 },
                 child: Icon(Icons.more_vert)),
@@ -74,6 +52,32 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         body: isListView ? buildListView() : buildGridView());
+  }
+
+  AlertDialog logoutDialogWidget(BuildContext context) {
+    return AlertDialog(
+                        title: Text("Logout"),
+                        content: Text("Do you want to logout?"),
+                        actions: [
+                          Row(
+                            children: [
+                              TextButton(
+                                child: Text("No"),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              TextButton(
+                                child: Text("Yes"),
+                                onPressed: () {
+                                  Navigator.popAndPushNamed(
+                                      context, SignInPage.routeName);
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      );
   }
 
   Widget buildListView() {

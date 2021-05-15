@@ -12,9 +12,10 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
-  bool isLoading = false;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,11 +43,11 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   Spacer(),
-                  buildTextFormField(emailController, "Please Enter Your Email",
+                  buildTextFormField(emailController, "Please enter your email",
                       Icon(Icons.email)),
                   Spacer(),
                   buildTextFormField(passwordController,
-                      "Please Enter Password", Icon(Icons.lock),
+                      "Please enter password", Icon(Icons.lock),
                       isPassword: true),
                   SizedBox(
                     height: 6,
